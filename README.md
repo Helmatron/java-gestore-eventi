@@ -49,6 +49,7 @@ numero di posti prenotati
 Quando si istanzia un nuovo evento questi attributi devono essere tutti valorizzati nel costruttore, tranne posti prenotati che va inizializzato a 0.
 
 Inserire il controllo che la data non sia già passata e che il numero di posti totali sia positivo. In caso contrario mostrare i dovuti avvisi all’utente
+Se data => data attuale $$ Se postiTot => 0
 
 Aggiungere metodi getter e setter in modo che:
 titolo sia in lettura e in scrittura
