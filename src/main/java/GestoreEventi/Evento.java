@@ -1,59 +1,24 @@
 package GestoreEventi;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-public class Evento {
+public class Evento extends AbstractEvento {
 
-	private String title;
-	private String date;
-	private int postiTot;
-	private int prenotazioni = 0;
-
-	public Evento(String title, String date, int postiTot) {
-
-		this.title = title;
-		this.date = date;
-		this.postiTot = postiTot;
-
+	public Evento(String title, LocalDate date, int postiTot) {
+		super(title, date, postiTot);
+		// TODO Auto-generated constructor stub
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-		
-	}
-
-	public int getPostiTot() {
-		return postiTot;
-	}
-
-	public int getPrenotazioni() {
-		return prenotazioni;
-	}
-
-	public void prenota() {
-		this.prenotazioni ++;
-	}
+	/* << OVERRIDE TOSTRIG >>
+	 * l’override del metodo toString()
+	 * in modo che venga restituita una stringa contenente:
+	 * data formattata - titolo
+	 */
 	
-	public void disdici() {
-		this.prenotazioni --;
-	}
-
 	@Override
 	public String toString() {
-		return "\nL'evento che hai creato \n" + date + " - " + title;
-		
+		return "\nL'evento che hai creato \n" + getDate() + " - " + getTitle();
+
 	}
-	
+
 }
