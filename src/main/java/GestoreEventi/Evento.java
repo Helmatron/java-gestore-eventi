@@ -4,9 +4,106 @@ import java.time.LocalDate;
 
 public class Evento extends AbstractEvento {
 
+	/* << CREA CLASSE EVENTO >>
+	 * -- dal momento che la classe evento contine le specifiche comuni a diversi
+	 * tipi di evento, ho deciso di renderla astratta --
+	 * 
+	 * << ATTRIBUTI EVENTO >>
+	 * Creare una classe Evento che abbia le seguenti proprietà:
+	 * 
+	 * titolo, data, numero di posti in totale, numero di posti prenotati.
+	 */
+
+	private String title;
+	private LocalDate date;
+	private int postiTot;
+	private int prenotazioni;
+
+	/* << COSTRUTTORE >>
+	 * Quando si istanzia un nuovo evento questi attributi devono essere tutti
+	 * valorizzati nel costruttore, tranne posti prenotati che va inizializzato a 0.
+	 * 
+	 * Inserire il controllo che la data non sia già passata e che il numero di
+	 * posti totali sia positivo. In caso contrario mostrare i dovuti avvisi
+	 * all’utente
+	 */
+
 	public Evento(String title, LocalDate date, int postiTot) {
-		super(title, date, postiTot);
-		// TODO Auto-generated constructor stub
+		if (date.isBefore(LocalDate.now())) {
+			throw new IllegalArgumentException("Data passata. Impossibile creare evento.");
+		}
+		if (postiTot <= 0) {
+			throw new IllegalArgumentException("Numero di posti totali non valido.");
+		}
+		this.title = title;
+		this.date = date;
+		this.postiTot = postiTot;
+		this.prenotazioni = 0;
+
+	}
+
+	/* << GETTER E SETTER >>
+	 * Aggiungere metodi getter e setter in modo che:
+	 * 
+	 * titolo sia in lettura e in scrittura
+	 * data sia in lettura e scrittura
+	 * numero di posti totale sia solo in lettura
+	 * numero di posti prenotati sia solo in lettura
+	 */
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public LocalDate getDate() {
+		return this.date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public int getPostiTot() {
+		return this.postiTot;
+	}
+
+	public int getPrenotazioni() {
+		return this.prenotazioni;
+	}
+	
+	/*
+	 * << OVERRIDE PRENOTA E DISDICI >>
+	 */
+
+	@Override
+	public void prenota() {
+		if (date.isBefore(LocalDate.now())) {
+			throw new IllegalArgumentException("Evento già passato. Impossibile prenotare");
+		}
+		if (prenotazioni >= postiTot) {
+			throw new IllegalArgumentException("Posti esauriti");
+		} else {
+			prenotazioni++;
+		}
+
+	}
+
+	@Override
+	public void disdici() {
+		if (date.isBefore(LocalDate.now())) {
+			throw new IllegalArgumentException("Evento già passato. Impossibile disdire");
+		}
+		if (prenotazioni <= 0) {
+			throw new IllegalArgumentException("Nessuna prenotazione da disdire");
+			
+		} else {
+			prenotazioni--;
+		}
+		
 	}
 
 	/* << OVERRIDE TOSTRIG >>
@@ -17,7 +114,7 @@ public class Evento extends AbstractEvento {
 	
 	@Override
 	public String toString() {
-		return "\nL'evento che hai creato \n" + getDate() + " - " + getTitle();
+		return "\nL'evento che hai creato \n" + getDate() + " - " + getTitle().toUpperCase();
 
 	}
 
