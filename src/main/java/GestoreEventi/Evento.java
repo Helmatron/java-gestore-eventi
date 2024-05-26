@@ -1,6 +1,7 @@
 package GestoreEventi;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Evento extends AbstractEvento {
 
@@ -63,12 +64,24 @@ public class Evento extends AbstractEvento {
 		return this.date;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setDate(String date) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		this.date = LocalDate.parse(date, formatter);
 	}
 
 	public int getPostiTot() {
 		return this.postiTot;
+	}
+	
+	/*
+	 * Setter dei posti totali creato
+	 * per la verificare dell'instanza nel MainTest
+	 * con richiesta tramite Scanner a Utente
+	*/
+	
+	protected void setPostiTot(int postiTot) {
+		this.postiTot = postiTot;
+		
 	}
 
 	public int getPrenotazioni() {
@@ -106,7 +119,7 @@ public class Evento extends AbstractEvento {
 		
 	}
 
-	/* << OVERRIDE TOSTRIG >>
+	/* << OVERRIDE TOSTRING >>
 	 * l’override del metodo toString()
 	 * in modo che venga restituita una stringa contenente:
 	 * data formattata - titolo

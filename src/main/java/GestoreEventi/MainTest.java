@@ -1,7 +1,7 @@
 package GestoreEventi;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+// import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MainTest {
@@ -9,10 +9,36 @@ public class MainTest {
 	public static void main(String[] args) {
 
 		/*
-		 * << RICHIESTA NUOVO EVENTO A UTENTE >> Creare una classe Main di test, in cui
+		 * << RICHIESTA NUOVO EVENTO A UTENTE >>
+		 * Creare una classe Main di test, in cui
 		 * si chiede all’utente di inserire unnuovo evento con tutti i parametri.
 		 */
 
+		// << INIZZIALIZZAZIONE EVENTO 1 >>
+		// << Versione inizializzazione Evento con metodi >>
+		Scanner scan = new Scanner(System.in);
+		
+		Evento e = new Evento(null, LocalDate.now(), 1);
+
+		System.out.println("CREA UN NUOVO EVENTO \n\nInserire il titolo dell'evento");
+		e.setTitle(scan.nextLine().toUpperCase());
+
+		System.out.println("Inserire la data dell'evento (yyyy-MM-dd)");
+		e.setDate(scan.nextLine());
+		
+		System.out.println("Inserire il numero massimo di prenotazioni per questo evento");
+		e.setPostiTot(scan.nextInt());
+
+	
+		System.out.println(e.toString());
+		System.out.print("Numero di posti totali: " + e.getPostiTot() + "\n\n");
+		
+		
+//-----------------------------------------------------------------------------
+
+		
+		/* << INIZIALIZZAZIONE EVENTO 2>>
+		 * << Versione con inizializzazione evento senza metodi >>
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("CREA UN NUOVO EVENTO \n\nInserire il titolo dell'evento");
@@ -30,8 +56,11 @@ public class MainTest {
 
 		System.out.println(e.toString());
 		System.out.print("Numero di posti totali: " + e.getPostiTot() + "\n\n");
+		*/
 
-		/*
+//-----------------------------------------------------------------------------
+		
+		/* << RICHIESTA PRONOTAZIONI >>
 		 * Dopo che l’evento è stato istanziato, chiedere all’utente se e quante
 		 * prenotazioni vuole fare e provare ad effettuarle, implementando opportuni
 		 * controlli Stampare a video il numero di posti prenotati e quelli disponibili
@@ -64,7 +93,11 @@ public class MainTest {
 			throw new IllegalArgumentException("Unexpected value: " + isPrenota);
 		}
 
-		/*
+		
+//-----------------------------------------------------------------------------
+
+
+		/* << RICHIESTA DISDETTA PRENOTZIONE >>
 		 * Chiedere all’utente se e quanti posti vuole disdire Provare ad effettuare le
 		 * disdette, implementando opportuni controlli Stampare a video il numero di
 		 * posti prenotati e quelli disponibili
