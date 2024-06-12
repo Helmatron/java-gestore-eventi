@@ -1,6 +1,7 @@
 package GestoreEventi;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 // import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -14,8 +15,8 @@ public class MainTest {
 		 * si chiede all’utente di inserire unnuovo evento con tutti i parametri.
 		 */
 
-		// << INIZZIALIZZAZIONE EVENTO 1 >>
-		// << Versione inizializzazione Evento con metodi >>
+		/* << INIZZIALIZZAZIONE EVENTO 1 >>
+			<< Versione inizializzazione Evento con metodi >>
 		Scanner scan = new Scanner(System.in);
 		
 		Evento e = new Evento(null, LocalDate.now(), 1);
@@ -32,13 +33,13 @@ public class MainTest {
 	
 		System.out.println(e.toString());
 		System.out.print("Numero di posti totali: " + e.getPostiTot() + "\n\n");
-		
+		*/
 		
 //-----------------------------------------------------------------------------
 
 		
-		/* << INIZIALIZZAZIONE EVENTO 2>>
-		 * << Versione con inizializzazione evento senza metodi >>
+		// << INIZIALIZZAZIONE EVENTO 2>>
+		// << Versione con inizializzazione evento senza metodi >>
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("CREA UN NUOVO EVENTO \n\nInserire il titolo dell'evento");
@@ -56,7 +57,7 @@ public class MainTest {
 
 		System.out.println(e.toString());
 		System.out.print("Numero di posti totali: " + e.getPostiTot() + "\n\n");
-		*/
+		
 
 //-----------------------------------------------------------------------------
 		
