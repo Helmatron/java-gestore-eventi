@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 public class Evento extends AbstractEvento {
 
 	/* << CREA CLASSE EVENTO >>
-	 * -- dal momento che la classe evento contine le specifiche comuni a diversi
-	 * tipi di evento, ho deciso di renderla astratta --
+	 * -- dal momento che la classe evento potrebbe contenere delle caratteristiche 
+	 * comuni ad altri tipi di evento, ho scelto di crearne una versione astratta. --
 	 * 
 	 * << ATTRIBUTI EVENTO >>
 	 * Creare una classe Evento che abbia le seguenti proprietà:
