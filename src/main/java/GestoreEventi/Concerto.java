@@ -22,9 +22,7 @@ public class Concerto extends Evento {
 
 	public Concerto(String title, LocalDate date, int postiTot, LocalTime ora, double price) {
 		super(title, date, postiTot);
-		if (ora.isBefore(LocalTime.now())) {
-			throw new IllegalArgumentException("Ora evento passata. Impossibile creare evento.");
-		}
+		
 		this.ora = ora;
 		this.price = price;
 

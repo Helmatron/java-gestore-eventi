@@ -73,7 +73,7 @@ public class Evento extends AbstractEvento {
 		return this.postiTot;
 	}
 	
-	/*
+	/* << TEST >>
 	 * Setter dei posti totali creato
 	 * per la verificare dell'instanza nel MainTest
 	 * con richiesta tramite Scanner a Utente
